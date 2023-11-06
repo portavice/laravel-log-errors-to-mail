@@ -21,7 +21,7 @@
     },
     "minimum-stability": "stable",
     "require": {
-        "php": "^8.2",
+        "php": "^8.1",
         "psr/log": "^3",
         "monolog/monolog": "^3",
         "illuminate/log": "^10",
