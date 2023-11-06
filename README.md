@@ -2,6 +2,13 @@
 
 [![MIT Licensed](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
+This package adds a basic logging channel that sends E-Mails for messages from a specific error level upwards to 
+preconfigured recipients using a Laravel mail transport.
+
+## Prerequisites
+
+* A configured default Laravel mail driver
+
 ## Installation
 
 ```sh
@@ -10,7 +17,8 @@ composer require portavice/laravel-mail-logger
 
 ## Configuration
 
-To configure your Laravel application to use the logger, you should create a logging channel in your `logging.php` configuration file.
+To configure your Laravel application to use the logger, you should create a logging channel in your `logging.php`
+configuration file.
 
 For example a stack channel that logs to the default stack and sends email notifications:
 
@@ -55,3 +63,16 @@ It's also possible to publish the configuration for this package with the `artis
 ```sh
 $ php artisan vendor:publish --tag=laravel-mail-logger
 ```
+
+### Choosing the Mail Transport
+
+By default, the application uses the `default` mail driver of your Laravel application.
+
+To change the driver used, you may publish the logger configuration and change the "laravel-mail-logger.email_driver" 
+option to the mail driver name you desire.
+
+The mail driver should extend the `\Illuminate\Mail\Mailer` class and return 
+a valid `\Symfony\Component\Mailer\Transport\TransportInterface` instance from the `Mailer::getSymfonyTransport()`
+Method.
+
+Mail drivers that do not use a Symfony Transport are not supported.
