@@ -1,14 +1,25 @@
 {
     "name": "portavice/laravel-mail-logger",
     "description": "Adds a logging channel that sends log messages via email to a configured email address",
+    "keywords": [
+        "laravel",
+        "log",
+        "logging",
+        "mail",
+        "e-mail"
+    ],
     "type": "library",
     "license": "MIT",
+    "homepage": "https://portavice.de",
     "authors": [
         {
             "name": "Jesko Karwasz",
             "email": "jesko.karwasz@portavice.de"
         }
     ],
+    "support": {
+        "issues": "https://github.com/portavice/<update-me>/issues"
+    },
     "autoload": {
         "psr-4": {
             "Portavice\\LaravelMailLogger\\": "src/"
