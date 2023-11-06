@@ -2,6 +2,7 @@
 /vendor/
 /tests/deduplicate.log
 /.phpunit.cache/
+.phpunit.result.cache
 .phpunit.coverage.xml
 phpcs.xml
 phpunit.xml
