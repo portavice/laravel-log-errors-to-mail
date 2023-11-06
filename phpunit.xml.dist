@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticProperties="false"
+         cacheDirectory=".phpunit.cache"
+         colors="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.4/phpunit.xsd">
+    <coverage>
+        <report>
+            <clover outputFile=".phpunit.coverage.xml"/>
+        </report>
+    </coverage>
+    <source>
+        <include>
+            <directory suffix=".php">./config/</directory>
+            <directory suffix=".php">./src/</directory>
+        </include>
+    </source>
+    <testsuites>
+        <testsuite name="Portavice Laravel Email Logger Test Suite">
+            <directory suffix="Test.php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

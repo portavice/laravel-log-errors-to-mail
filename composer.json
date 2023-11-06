@@ -1,0 +1,57 @@
+{
+    "name": "portavice/laravel-mail-logger",
+    "description": "Adds a logging channel that sends log messages via email to a configured email address",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jesko Karwasz",
+            "email": "jesko.karwasz@portavice.de"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Portavice\\LaravelMailLogger\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Portavice\\LaravelMailLogger\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "psr/log": "^3",
+        "monolog/monolog": "^3",
+        "illuminate/log": "^10",
+        "illuminate/mail": "^10",
+        "illuminate/support": "^10",
+        "symfony/mailer": "^6"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1",
+        "orchestra/testbench": "^8.5",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpunit/phpunit": "^10.4",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Portavice\\LaravelMailLogger\\MailLoggerServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "cs": "vendor/bin/phpcs",
+        "csfix": "vendor/bin/phpcbf",
+        "test": "vendor/bin/phpunit"
+    }
+}

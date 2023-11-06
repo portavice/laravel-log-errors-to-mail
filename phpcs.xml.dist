@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ruleset name="project coding standard">
+    <!-- display progress -->
+    <arg value="psv"/>
+
+    <!-- use colors in output -->
+    <arg name="colors"/>
+
+    <!-- Paths to check -->
+    <file>config</file>
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- Check for PSR12 compliance -->
+    <rule ref="PSR12"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Squiz.Arrays.ArrayDeclaration.NoComma"/>
+
+    <!-- Increase line limit for test files due to long sample strings -->
+    <rule ref="Generic.Files.LineLength">
+        <include-pattern>*/tests/*</include-pattern>
+        <properties>
+            <property name="lineLimit" value="160"/>
+        </properties>
+    </rule>
+
+    <!-- Check vor PHP compatibility -->
+    <rule ref="PHPCompatibility"/>
+    <config name="testVersion" value="8.1-"/>
+</ruleset>
