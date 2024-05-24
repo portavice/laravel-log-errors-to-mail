@@ -26,13 +26,7 @@ class HtmlFormatter extends BaseHtmlFormatter
     {
         return match ($level) {
             Level::Debug     => '#000000',
-            Level::Info      => '#FFFFFF',
-            Level::Notice    => '#FFFFFF',
-            Level::Warning   => '#FFFFFF',
-            Level::Error     => '#FFFFFF',
-            Level::Critical  => '#FFFFFF',
-            Level::Alert     => '#FFFFFF',
-            Level::Emergency => '#FFFFFF',
+            default => '#FFFFFF',
         };
     }
 
@@ -40,16 +34,15 @@ class HtmlFormatter extends BaseHtmlFormatter
     {
         $th = htmlspecialchars($th, ENT_NOQUOTES, 'UTF-8');
         if ($escapeTd) {
-            $td = '<pre style="margin: 0; padding: 0;">'.htmlspecialchars($td, ENT_NOQUOTES, 'UTF-8').'</pre>';
+            $td = '<pre style="margin: 0; padding: 0;">' . htmlspecialchars($td, ENT_NOQUOTES, 'UTF-8') . '</pre>';
         }
 
         return <<<HTML
 <tr style="padding: 4px; text-align: left;">
-    <th style="padding: 4px; vertical-align: top; background: #ddd; color: #000; border-bottom: 1px solid #ccc; font-family: Helvetica Neue, Helvetica, Verdana, sans-serif;" width="100">$th:</th>
+    <th style="padding: 4px; text-align: left; vertical-align: top; background: #ddd; color: #000; border-bottom: 1px solid #ccc; font-family: Helvetica Neue, Helvetica, Verdana, sans-serif;" width="100">$th:</th>
     <td style="padding: 4px; text-align: left;vertical-align: top; background: #eee; color: #000; border-bottom: 1px solid #ddd;">$td</td>
 </tr>
 HTML;
-
     }
 
     protected function addTitle(string $title, Level $level): string
@@ -93,6 +86,6 @@ HTML;
             }
         }
 
-        return $output.'</table>';
+        return $output . '</table>';
     }
 }
