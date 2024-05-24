@@ -45,7 +45,7 @@ class EmailHandler implements HandlerInterface, ProcessableHandlerInterface
             ]);
 
             $email->subject(str_replace(
-                $replacements->keys()->map(fn($k) => '{{' . $k . '}}')->all(),
+                $replacements->keys()->map(fn ($k) => '{{' . $k . '}}')->all(),
                 $replacements->values()->all(),
                 '{{APP_NAME}} [%datetime%] %channel%.%level_name%: %message%'
             ));
