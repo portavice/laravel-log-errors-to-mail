@@ -10,21 +10,33 @@ jobs:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        php: [ 8.2, 8.1 ]
+        php: [ 8.3, 8.2, 8.1 ]
+        laravel: [11.*, 10.*]
+        depdencency-version: [prefer-lowest, prefer-stable]
+        include:
+          - laravel: 10.*
+            testbench: ^8.5
+          - laravel: 11.*
+            testbench: ^9.1
+        exclude:
+          - laravel: 11.*
+            php: 8.1
 
-    name: Tests ${{ matrix.os }} - PHP ${{ matrix.php }}
+    name: Tests P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
 
     steps:
       -   name: Checkout code
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
 
       -   name: Setup PHP
           uses: shivammathur/setup-php@v2
           with:
             php-version: ${{ matrix.php }}
 
-      -   name: Install
-          run: composer install --no-interaction
+      -   name: Install dependencies
+          run: |
+            composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+            composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       -   name: Execute tests
           run: vendor/bin/phpunit
