@@ -14,8 +14,8 @@ class HtmlFormatter extends BaseHtmlFormatter
             Level::Debug     => '#DDDDDD',
             Level::Info      => '#28A745',
             Level::Notice    => '#17A2B8',
-            Level::Warning   => '#FFC107',
-            Level::Error     => '#FD7E14',
+            Level::Warning   => '#FFB300',
+            Level::Error     => '#FF7801',
             Level::Critical  => '#DC3545',
             Level::Alert     => '#821722',
             Level::Emergency => '#000000',
@@ -25,7 +25,7 @@ class HtmlFormatter extends BaseHtmlFormatter
     protected function getLevelTextColor(Level $level): string
     {
         return match ($level) {
-            Level::Debug     => '#FFFFFF',
+            Level::Debug     => '#000000',
             Level::Info      => '#FFFFFF',
             Level::Notice    => '#FFFFFF',
             Level::Warning   => '#FFFFFF',
