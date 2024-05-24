@@ -3,7 +3,6 @@
 namespace Portavice\LaravelMailLogger\Monolog;
 
 use Illuminate\Support\Facades\Mail;
-use Monolog\Formatter\HtmlFormatter;
 use Monolog\Handler\DeduplicationHandler;
 use Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy;
 use Monolog\Handler\FingersCrossedHandler;
@@ -16,6 +15,7 @@ use Monolog\Handler\WhatFailureGroupHandler;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\LogRecord;
+use Portavice\LaravelMailLogger\Monolog\Formatter\HtmlFormatter;
 use Psr\Log\LogLevel;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
