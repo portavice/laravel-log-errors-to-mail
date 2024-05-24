@@ -42,17 +42,12 @@
         "symfony/mailer": "^6|^7"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^1",
         "orchestra/testbench": "^8.5|^9.1",
-        "phpcompatibility/php-compatibility": "^9.3",
-        "phpunit/phpunit": "^10.4",
-        "squizlabs/php_codesniffer": "^3.7"
+        "phpunit/phpunit": "^10.4|^11.1",
+        "portavice/laravel-pint-config": "^2.0"
     },
     "config": {
-        "sort-packages": true,
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
+        "sort-packages": true
     },
     "extra": {
         "laravel": {
@@ -62,8 +57,8 @@
         }
     },
     "scripts": {
-        "cs": "vendor/bin/phpcs",
-        "csfix": "vendor/bin/phpcbf",
+        "cs": "pint --config vendor/portavice/laravel-pint-config/pint.json --test",
+        "csfix": "pint --config vendor/portavice/laravel-pint-config/pint.json",
         "test": "vendor/bin/phpunit"
     }
 }
