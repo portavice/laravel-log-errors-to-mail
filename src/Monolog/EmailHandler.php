@@ -1,6 +1,6 @@
 <?php
 
-namespace Portavice\LaravelMailLogger\Monolog;
+namespace Portavice\Laravel\LogErrorsToMail\Monolog;
 
 use Illuminate\Support\Facades\Mail;
 use Monolog\Handler\DeduplicationHandler;
@@ -15,7 +15,7 @@ use Monolog\Handler\WhatFailureGroupHandler;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\LogRecord;
-use Portavice\LaravelMailLogger\Monolog\Formatter\HtmlFormatter;
+use Portavice\Laravel\LogErrorsToMail\Monolog\Formatter\HtmlFormatter;
 use Psr\Log\LogLevel;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;

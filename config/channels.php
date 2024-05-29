@@ -3,7 +3,7 @@
 return [
     'log_errors_to_mail' => [
         'driver' => 'monolog',
-        'handler' => \Portavice\LaravelMailLogger\Monolog\EmailHandler::class,
+        'handler' => \Portavice\Laravel\LogErrorsToMail\Monolog\EmailHandler::class,
         'with' => [
             'driver' => config('laravel-mail-logger.email_driver'),
             'recipient' => config('laravel-mail-logger.recipient'),

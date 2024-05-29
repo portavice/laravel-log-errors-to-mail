@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Portavice\\LaravelMailLogger\\": "src/"
+            "Portavice\\Laravel\\LogErrorsToMail\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Portavice\\LaravelMailLogger\\Tests\\": "tests/"
+            "Portavice\\Laravel\\LogErrorsToMail\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "stable",
@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LogErrorsToMailServiceProvider"
+                "Portavice\\Laravel\\LogErrorsToMail\\LogErrorsToMailServiceProvider"
             ]
         }
     },

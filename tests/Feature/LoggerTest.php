@@ -1,6 +1,6 @@
 <?php
 
-namespace Portavice\LaravelMailLogger\Tests\Feature;
+namespace Portavice\Laravel\LogErrorsToMail\Tests\Feature;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Mail\Mailer;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Monolog\LogRecord;
 use Orchestra\Testbench\TestCase;
-use Portavice\LaravelMailLogger\Monolog\EmailHandler;
+use Portavice\Laravel\LogErrorsToMail\Monolog\EmailHandler;
 use Psr\Log\LogLevel;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 

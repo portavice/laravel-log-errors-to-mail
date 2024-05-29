@@ -1,6 +1,6 @@
 <?php
 
-namespace Portavice\LaravelMailLogger\Monolog\Formatter;
+namespace Portavice\Laravel\LogErrorsToMail\Monolog\Formatter;
 
 use Monolog\Formatter\HtmlFormatter as BaseHtmlFormatter;
 use Monolog\Level;

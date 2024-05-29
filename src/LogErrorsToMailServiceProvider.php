@@ -1,6 +1,6 @@
 <?php
 
-namespace Portavice\LaravelMailLogger;
+namespace Portavice\Laravel\LogErrorsToMail;
 
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
