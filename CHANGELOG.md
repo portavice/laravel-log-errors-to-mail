@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## Version 1.0.0 (2024-05-29)
+
 ### Added
 - Laravel logging channel "laravel_mail_logger" 
   - Configuration of above logging channel via environment variables
