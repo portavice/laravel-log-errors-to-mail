@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'email_driver' => config('mail.default'),
+    'email_driver' => env('LOG_MAIL_MAILER', config('mail.default')),
 
     'recipient' => env('LOG_MAIL_TO'),
 

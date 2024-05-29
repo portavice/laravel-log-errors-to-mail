@@ -50,6 +50,9 @@ The library offers some customization for the default `laravel_mail_logger` chan
 
 ```dotenv
 # defaults
+# the name of the laravel mailer to use when sending email. (blank by default)
+ # if omitted, uses the global default mailer configured for your laravel application 
+LOG_MAIL_MAILER=
 # recipient of the error emails (blank by default) 
 LOG_MAIL_TO=
 # deduplicate error emails (on by default)
