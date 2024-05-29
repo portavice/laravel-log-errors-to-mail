@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'laravel_mail_logger' => [
+    'log_errors_to_mail' => [
         'driver' => 'monolog',
         'handler' => \Portavice\LaravelMailLogger\Monolog\EmailHandler::class,
         'with' => [

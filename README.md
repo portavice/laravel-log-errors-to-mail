@@ -1,4 +1,4 @@
-# E-Mail Logging for Laravel
+# Log Errors to E-Mail for Laravel
 
 [![MIT Licensed](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
@@ -12,7 +12,7 @@ preconfigured recipients using a Laravel mail transport.
 ## Installation
 
 ```sh
-composer require portavice/laravel-mail-logger
+composer require portavice/laravel-log-errors-to-mail
 ```
 
 ## Configuration
@@ -30,7 +30,7 @@ return [
 
         'stack_with_email' => [
             'driver' => 'stack',
-            'channels' => ['stack', 'laravel_mail_logger'],
+            'channels' => ['stack', 'log_errors_to_mail'],
             'ignore_exceptions' => false,
         ],
     ],
@@ -52,19 +52,19 @@ The library offers some customization for the default `laravel_mail_logger` chan
 # defaults
 # the name of the laravel mailer to use when sending email. (blank by default)
  # if omitted, uses the global default mailer configured for your laravel application 
-LOG_MAIL_MAILER=
+LOG_ERROR_TO_MAIL_MAILER=
 # recipient of the error emails (blank by default) 
-LOG_MAIL_TO=
+LOG_ERROR_TO_MAIL_TO=
 # deduplicate error emails (on by default)
-LOG_MAIL_DEDUPLICATE=true
+LOG_ERROR_TO_MAIL_DEDUPLICATE=true
 # minimum PSR log level to send emails for (error by default) 
-LOG_MAIL_LEVEL=error
+LOG_ERROR_TO_MAIL_LEVEL=error
 ```
 
 It's also possible to publish the configuration for this package with the `artisan vendor:publish` command.
 
 ```sh
-$ php artisan vendor:publish --tag=laravel-mail-logger
+$ php artisan vendor:publish --tag=laravel-log-errors-to-mail
 ```
 
 ### Choosing the Mail Transport
@@ -78,7 +78,7 @@ The mail driver should extend the `\Illuminate\Mail\Mailer` class and return
 a valid `\Symfony\Component\Mailer\Transport\TransportInterface` instance from the `Mailer::getSymfonyTransport()`
 Method.
 
-## Gotchas
+## Known issues
 
 ### Mail drivers using a 'log' transport
 

@@ -52,7 +52,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Portavice\\LaravelMailLogger\\MailLoggerServiceProvider"
+                "LogErrorsToMailServiceProvider"
             ]
         }
     },
