@@ -1,5 +1,5 @@
 {
-    "name": "portavice/laravel-mail-logger",
+    "name": "portavice/laravel-log-errors-to-mail",
     "description": "Adds a logging channel that sends log messages via email to a configured email address",
     "keywords": [
         "laravel",
