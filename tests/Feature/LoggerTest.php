@@ -4,6 +4,8 @@ namespace Portavice\LaravelMailLogger\Tests\Feature;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Mail\Mailer;
+use Illuminate\Mail\Transport\LogTransport;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Monolog\LogRecord;
 use Orchestra\Testbench\TestCase;
@@ -55,7 +57,7 @@ class LoggerTest extends TestCase
             );
 
         $handler = new EmailHandler(
-            'default',
+            'smtp',
             'john.doe@example.org',
             false,
             LogLevel::ERROR
@@ -175,6 +177,28 @@ class LoggerTest extends TestCase
 
         $handler = new EmailHandler(
             'default',
+            'john.doe@example.org',
+            false,
+            LogLevel::ERROR
+        );
+
+        $handler->handle(new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Info, 'Info Message'));
+        $handler->handle(new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Warning, 'Warning Message'));
+        $handler->handle(new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Error, 'Error Message'));
+        $handler->handle(new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Info, 'Info Message'));
+        $handler->handle(new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Warning, 'Warning Message'));
+        $handler->handle(new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Error, 'Error Message'));
+    }
+
+    public function testLogTransportIsNotHandled()
+    {
+        Config::set('mail.mailers.log.transport', 'log');
+
+        Mail::shouldReceive('driver')
+            ->never();
+
+        $handler = new EmailHandler(
+            'log',
             'john.doe@example.org',
             false,
             LogLevel::ERROR

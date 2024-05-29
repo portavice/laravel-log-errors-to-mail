@@ -2,6 +2,7 @@
 
 namespace Portavice\LaravelMailLogger\Monolog;
 
+use Illuminate\Mail\Transport\LogTransport;
 use Illuminate\Support\Facades\Mail;
 use Monolog\Handler\DeduplicationHandler;
 use Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy;
@@ -27,14 +28,24 @@ class EmailHandler implements HandlerInterface, ProcessableHandlerInterface
     private HandlerInterface $handler;
 
     public function __construct(
-        string $driver,
+        ?string $driver,
         ?string $recipient = null,
         bool $deduplicate = false,
         string $level = LogLevel::ERROR
     ) {
+        if ($driver === null) {
+            $driver = Mail::getDefaultDriver();
+        }
+
+        $transport = config('mail.mailers.' . $driver . '.transport');
+        if ($transport === 'log') {
+            $this->handler = new NoopHandler();
+            return;
+        }
+
         // don't try to create an email handler unless mail transport is smtp.
         // otherwise create a noop handler.
-        if ($recipient !== null) {
+        if ($recipient !== null && $driver !== null) {
             $email = new Email();
             $email->from(new Address(config('mail.from.address'), config('mail.from.name', '')));
             $email->to(...explode(',', $recipient));

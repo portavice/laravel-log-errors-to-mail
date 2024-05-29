@@ -69,7 +69,7 @@ $ php artisan vendor:publish --tag=laravel-mail-logger
 
 ### Choosing the Mail Transport
 
-By default, the application uses the `default` mail driver of your Laravel application.
+By default, the application uses the default mail driver of your Laravel application.
 
 To change the driver used, you may publish the logger configuration and change the "laravel-mail-logger.email_driver" 
 option to the mail driver name you desire.
@@ -78,4 +78,13 @@ The mail driver should extend the `\Illuminate\Mail\Mailer` class and return
 a valid `\Symfony\Component\Mailer\Transport\TransportInterface` instance from the `Mailer::getSymfonyTransport()`
 Method.
 
-Mail drivers that do not use a Symfony Transport are not supported.
+## Gotchas
+
+### Mail drivers using a 'log' transport
+
+Mail drivers using a `\Illuminate\Mail\Transport\LogTransport` transport are not supported and the EmailHandler will
+fall back to a `NoopHandler`.
+
+**However**, this automatic fallback currently only works if the selected driver directly uses a `LogTransport`.
+If you for example set a `RoundRobinTransport` with a `LogTransport` mail driver, it will end up in 
+an infinite recursion loop. 
