@@ -2,7 +2,6 @@
 
 namespace Portavice\LaravelMailLogger\Monolog;
 
-use Illuminate\Mail\Transport\LogTransport;
 use Illuminate\Support\Facades\Mail;
 use Monolog\Handler\DeduplicationHandler;
 use Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy;

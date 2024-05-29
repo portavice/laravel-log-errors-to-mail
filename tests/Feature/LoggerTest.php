@@ -4,7 +4,6 @@ namespace Portavice\LaravelMailLogger\Tests\Feature;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Contracts\Mail\Mailer;
-use Illuminate\Mail\Transport\LogTransport;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Monolog\LogRecord;
