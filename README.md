@@ -71,7 +71,7 @@ $ php artisan vendor:publish --tag=laravel-log-errors-to-mail
 
 By default, the application uses the default mail driver of your Laravel application.
 
-To change the driver used, you may publish the logger configuration and change the "laravel-mail-logger.email_driver" 
+To change the driver used, you may publish the logger configuration and change the "laravel_log_errors_to_mail.email_driver" 
 option to the mail driver name you desire.
 
 The mail driver should extend the `\Illuminate\Mail\Mailer` class and return 
