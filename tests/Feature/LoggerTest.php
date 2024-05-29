@@ -39,6 +39,7 @@ class LoggerTest extends TestCase
     public function testEmailIsSent()
     {
         Mail::shouldReceive('driver')
+            ->withArgs(['smtp'])
             ->once()
             ->andReturnUsing(
                 fn () => \Mockery::mock(Mailer::class)
@@ -60,7 +61,7 @@ class LoggerTest extends TestCase
             LogLevel::ERROR
         );
 
-        $record = new LogRecord(CarbonImmutable::now(), 'default', \Monolog\Level::Error, 'Message');
+        $record = new LogRecord(CarbonImmutable::now(), 'smtp', \Monolog\Level::Error, 'Message');
 
         $handler->handle($record);
     }
