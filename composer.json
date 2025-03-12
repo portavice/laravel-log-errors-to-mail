@@ -36,13 +36,13 @@
         "php": "^8.1",
         "psr/log": "^3",
         "monolog/monolog": "^3",
-        "illuminate/log": "^10|^11",
-        "illuminate/mail": "^10|^11",
-        "illuminate/support": "^10|^11",
+        "illuminate/log": "^10|^11|^12",
+        "illuminate/mail": "^10|^11|^12",
+        "illuminate/support": "^10|^11|^12",
         "symfony/mailer": "^6|^7"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.5|^9.1",
+        "orchestra/testbench": "^8.5|^9.1|^10.1",
         "phpunit/phpunit": "^10.4|^11.1",
         "portavice/laravel-pint-config": "^2.0"
     },
