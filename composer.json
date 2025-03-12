@@ -42,7 +42,7 @@
         "symfony/mailer": "^6|^7"
     },
     "require-dev": {
-        "orchestra/testbench": "^8.5|^9.1",
+        "orchestra/testbench": "^8.5|^9.1|^10.1",
         "phpunit/phpunit": "^10.4|^11.1",
         "portavice/laravel-pint-config": "^2.0"
     },
