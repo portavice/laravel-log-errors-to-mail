@@ -19,7 +19,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/portavice/<update-me>/issues"
+        "issues": "https://github.com/portavice/laravel-log-errors-to-mail/issues"
     },
     "autoload": {
         "psr-4": {
